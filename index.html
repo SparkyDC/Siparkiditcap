@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4 мектептин 8-а классы</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-top: 20px;
+        }
+        .student {
+            display: inline-block;
+            margin: 20px;
+            text-align: center;
+        }
+        .student-button {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 30px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .student-button:hover {
+            background-color: #45a049;
+        }
+        .hidden {
+            display: none;
+        }
+        .login {
+            margin-top: 20px;
+        }
+        img {
+            width: 100px; /* Задайте желаемую ширину */
+            height: auto; /* Сохраняет пропорции изображения */
+            border-radius: 50%; /* Округлые фотографии */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Учашиися класса</h1>
+    
+    <div class="student">
+        <img src="path_to_muslim_photo.jpg" alt="Абдураимов Муслим">
+        <a class="student-button" href="#" onclick="showStudent('muslim')">Абдураимов Муслим</a>
+    </div>
+    
+    <div class="student">
+        <img src="path_to_abdali_photo.jpg" alt="Жаамбаев Абдалим">
+        <a class="student-button" href="#" onclick="showStudent('abdali')">Жаамбаев Абдалим</a>
+    </div>
+    
+    <div class="student">
+        <img src="path_to_abdunur_photo.jpg" alt="Жаамбаев Абдунур">
+        <a class="student-button" href="#" onclick="showStudent('abdunur')">Жаамбаев Абдунур</a>
+    </div>
+
+    <div id="student-info" class="hidden">
+        <h2 id="student-name"></h2>
+        <p id="student-message"></p>
+        <div class="login">
+            <input type="password" id="password" placeholder="Введите пароль">
+            <button onclick="checkPassword()">Войти</button>
+        </div>
+    </div>
+
+    <script>
+        const students = {
+            muslim: {
+                name: "Абдураимов Муслим",
+                message: "Стиль макако йоу!"
+            },
+            abdali: {
+                name: "Жаамбаев Абдалим",
+                message: "Шышып кетем"
+            },
+            abdunur: {
+                name: "Жаамбаев Абдунур",
+                message: "Соло комбэк"
+            }
+        };
+
+        function showStudent(studentKey) {
+            document.getElementById("student-info").classList.remove("hidden");
+            document.getElementById("student-name").innerText = students[studentKey].name;
+            document.getElementById("student-message").innerText = "";
+            document.getElementById("password").value = ""; // сброс пароля
+        }
+
+        function checkPassword() {
+            const password = document.getElementById("password").value;
+            const studentKey = document.getElementById("student-name").innerText.split(" ")[0].toLowerCase();
+
+            if (password === "123456") {
+                document.getElementById("student-message").innerText = students[studentKey].message;
+            } else {
+                alert("Неверный пароль!");
+            }
+        }
+    </script>
+
+</body>
+</html>
