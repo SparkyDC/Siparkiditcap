@@ -1,0 +1,112 @@
+/* Общие стили для страницы */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 40px 0;
+    margin-bottom: 50px; /* Отступ между верхним фоном и контентом */
+}
+
+h1 {
+    margin: 0;
+}
+
+/* Стиль белого блока под шапкой */
+.header-white {
+    background-color: white;
+    height: 20px; /* Низкий белый блок */
+    margin-top: -20px;
+}
+
+/* Сетка учеников */
+.student-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Стили для каждого ученика */
+.student {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.student:hover {
+    transform: translateY(-10px);
+}
+
+/* Стиль изображения ученика */
+.student img {
+    width: 150px; /* Ширина миниатюры */
+    height: 150px; /* Высота миниатюры */
+    border-radius: 50%; /* Круглая форма */
+    object-fit: cover; /* Сохранение пропорций изображения */
+    margin-bottom: 15px;
+}
+
+/* Имя ученика */
+.student h3 {
+    margin: 10px 0 5px;
+    font-size: 1.2em;
+}
+
+/* Цитата ученика */
+.quote {
+    font-style: italic;
+    color: #777;
+    font-size: 0.9em;
+}
+
+/* Нижняя часть сайта */
+footer {
+    background-color: #333; /* Тот же цвет, что и в шапке */
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer-top {
+    background-color: white;
+    height: 20px; /* Белый фон сверху нижней части */
+    margin-bottom: 20px; /* Отступ между белым блоком и содержимым */
+}
+
+.footer-content p {
+    margin: 5px 0;
+    font-size: 1.1em;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .student-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    footer {
+        padding: 20px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .student-grid {
+        grid-template-columns: 1fr;
+    }
+
+    footer {
+        padding: 15px 0;
+    }
+}
+
